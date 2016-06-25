@@ -42,20 +42,27 @@ class ViewController: UIViewController {
     func setupOranceViewConstraints() {
         orangeView.translatesAutoresizingMaskIntoConstraints = false
         
-        let orangeViewCenterXConstraint = NSLayoutConstraint(item: orangeView, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1.0, constant: 0.0)
-        
-        let orangeViewBottomSpaceConstraint = NSLayoutConstraint(item: orangeView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .BottomMargin, multiplier: 1.0, constant: -50.0)
-        
-        let orangeViewHeightConstraint = NSLayoutConstraint(item: orangeView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 57.0)
-        
-        let orangeViewWidthConstraint = NSLayoutConstraint(item: orangeView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 200.0)
-        
-        view.addConstraints([
-            orangeViewCenterXConstraint,
-            orangeViewBottomSpaceConstraint,
-            orangeViewHeightConstraint,
-            orangeViewWidthConstraint
+        NSLayoutConstraint.activateConstraints([
+            orangeView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
+            orangeView.bottomAnchor.constraintEqualToAnchor(view.layoutMarginsGuide.bottomAnchor, constant: -50.0),
+            orangeView.heightAnchor.constraintEqualToConstant(57.0),
+            orangeView.widthAnchor.constraintEqualToConstant(200.0)
         ])
+        
+//        let orangeViewCenterXConstraint = NSLayoutConstraint(item: orangeView, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1.0, constant: 0.0)
+//        
+//        let orangeViewBottomSpaceConstraint = NSLayoutConstraint(item: orangeView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .BottomMargin, multiplier: 1.0, constant: -50.0)
+//        
+//        let orangeViewHeightConstraint = NSLayoutConstraint(item: orangeView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 57.0)
+//        
+//        let orangeViewWidthConstraint = NSLayoutConstraint(item: orangeView, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 200.0)
+//        
+//        view.addConstraints([
+//            orangeViewCenterXConstraint,
+//            orangeViewBottomSpaceConstraint,
+//            orangeViewHeightConstraint,
+//            orangeViewWidthConstraint
+//        ])
     }
     
     func setupPurpleViewConstraints() {
